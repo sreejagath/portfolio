@@ -1,0 +1,70 @@
+.navbar-nav {
+    margin-left: auto;
+    
+}
+.navbar-nav > li{
+    margin-left:2rem;
+    margin-right:30px;
+  }
+.name{
+    font-size:1.5rem;
+}
+.logo img{
+    height:13rem;
+    
+} 
+.about .about-text{
+    font-size:2.5rem;
+    font-weight:bold;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    text-transform:uppercase;
+}
+.about .about-text p{
+    font-size:1.5rem;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    padding:3rem;
+}
+.experience-text {
+    font-size:2.5rem;
+    font-weight:bold;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    text-transform:uppercase;
+}
+footer{
+    position:relative;
+    bottom:0;
+    width:100%;
+}
+.footer{
+    position:relative;
+    bottom:0;
+    width:100%;
+    background-color:#302f2f;
+    color: white;
+    padding:1rem;
+    text-align:center;
+
+}
+#name-alert{
+    color:red;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+#phone-alert{
+    color:red;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+#message-alert{
+    color:red;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+#email-alert{
+    color:red;
+    font-size:1.5rem;
+    font-weight:bold;
+}
