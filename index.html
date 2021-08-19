@@ -88,13 +88,13 @@
                     </div>
                   </div>
                   <div class="card ms-3 mt-5" style="width: 18rem;color: black;">
-                    <img class="card-img-top" src="./Assets/html.svg" alt="Card image cap">
+                    <img class="card-img-top" src="./Assets/node2.png" alt="Card image cap">
                     <div class="card-body">
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                   </div>
                   <div class="card ms-3 mt-5" style="width: 18rem;color: black;">
-                    <img class="card-img-top" src="./Assets/html.svg" alt="Card image cap">
+                    <img class="card-img-top" src="./Assets/1611079.png" alt="Card image cap">
                     <div class="card-body">
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
@@ -129,10 +129,15 @@
             
             <form id="submit-form" action="">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                    <label for="name">First Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="First Name" required>
                     <span id="name-alert"></span>
                 </div>
+                <div class="form-group">
+                  <label for="name">Last Name</label>
+                  <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+                  <span id="lname-alert"></span>
+              </div>
                 <div class="form-group">
                     <label for="email">Phone Number</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" required>
@@ -192,7 +197,6 @@
         var text=$(this).val()
         if(text.length<3){
           $("#name-alert").text("Enter minimum character of 3");
-          $("#name").prop("noSpace",true);
           $("#send").prop("disabled",true);
         }else{
           $("#name-alert").text("");
@@ -221,6 +225,18 @@
           button_enable();
         }
       })
+      $("#lname").blur(function(){
+        var text=$(this).val()
+        if(text.match(/^[a-zA-Z]+$/)==null){
+          $("#lname-alert").text("Enter a valid name");
+          $("#send").prop("disabled",true);
+        }else{
+          $("#lname-alert").text("");
+
+          button_enable();
+        }
+      })
+      
       $("#phone").blur(function(){
         var text=$(this).val()
         if(!text.match(/^[0-9]+$/)||text.length<10||text.length>10){
