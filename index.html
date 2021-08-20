@@ -139,7 +139,7 @@
               skills
             </h1>
             <div class="row justify-content-center mx-auto">
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/html.svg"
@@ -153,7 +153,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/css.svg"
@@ -167,7 +167,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/node2.png"
@@ -181,7 +181,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/1611079.png"
@@ -195,7 +195,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/download.png"
@@ -209,7 +209,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/javascript-seeklogo.com.svg"
@@ -222,7 +222,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card ms-3 mt-5" style="width: 18rem; color: black">
+              <div class="card ms-3 mt-5" style="width: 14rem; color: black">
                 <img
                   class="card-img-top"
                   src="./Assets/images.png"
@@ -257,6 +257,7 @@
                     name="name"
                     placeholder="First Name"
                     onkeypress="return event.charCode != 32 && (event.charCode < 48 || event.charCode > 57)"
+                    onclick=namespace()
                     required
                   />
                   <span id="name-alert"></span>
@@ -294,6 +295,7 @@
                     id="email"
                     name="email"
                     placeholder="Email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     required
                   />
                   <span id="email-alert"></span>
@@ -382,6 +384,14 @@
       });
 
       //VALIDATION FUNCTIONS
+      $(function namespace() {
+  $('body').on('keydown', '#test', function(e) {
+    console.log(this.value);
+    if (e.which === 32 &&  e.target.selectionStart === 0) {
+      return false;
+    }  
+  });
+});
 
       
       $("#name").blur(function () {
