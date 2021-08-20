@@ -256,7 +256,7 @@
                     id="name"
                     name="name"
                     placeholder="First Name"
-                    onkeypress="return event.charCode != 32"
+                    onkeypress="return event.charCode != 32 && (event.charCode < 48 || event.charCode > 57)"
                     required
                   />
                   <span id="name-alert"></span>
@@ -269,7 +269,7 @@
                     id="lname"
                     name="lname"
                     placeholder="Last Name"
-                    onkeypress="return event.charCode != 32"
+                    onkeypress="return event.charCode != 32 && (event.charCode < 48 || event.charCode > 57)"
                   />
                   <span id="lname-alert"></span>
                 </div>
@@ -281,6 +281,7 @@
                     id="phone"
                     name="phone"
                     placeholder="Phone Number"
+                    onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"
                     required
                   />
                   <span id="phone-alert"></span>
@@ -388,30 +389,15 @@
         if (text.length < 3) {
           $("#name-alert").text("Enter minimum character of 3");
           $("#send").prop("disabled", true);
-        } else {
-          $("#name-alert").text("");
-          button_enable();
-        }
-      });
-      $("#name").blur(function () {
-        var text = $(this).val();
-        if (text.length > 20) {
+        }else if(text.length > 20){
           $("#name-alert").text("Enter maximum character of 20");
           $("#send").prop("disabled", true);
-        } else {
-          $("#name-alert").text("");
-
-          button_enable();
-        }
-      });
-      $("#name").blur(function () {
-        var text = $(this).val();
-        if (text.match(/^[a-zA-Z]+$/) == null) {
+        }else if(text.match(/^[a-zA-Z]+$/) == null){
           $("#name-alert").text("Enter a valid name");
           $("#send").prop("disabled", true);
-        } else {
+        }
+         else {
           $("#name-alert").text("");
-
           button_enable();
         }
       });
@@ -429,10 +415,15 @@
 
       $("#phone").blur(function () {
         var text = $(this).val();
-        if (!text.match(/^[0-9]+$/) || text.length < 10 || text.length > 10) {
+        if (!text.match(/^[0-9]+$/)) {
           $("#phone-alert").text("Enter a valid phone number");
           $("#send").prop("disabled", true);
-        } else {
+        }else if(text.length < 10){
+          $("#phone-alert").text("Should have at least 10 numbers");
+        }else if(text.length > 10){
+          $("#phone-alert").text("Should have only 10 numbers");
+        }
+         else {
           $("#phone-alert").text("");
 
           button_enable();
